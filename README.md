@@ -5,7 +5,7 @@
 
 <b><u>Publishing Details</u></b><br>
 <b>Program Name:</b> Lead File Generator<br>
-<b>Created Under:</b> Tkinter
+<b>Created Under:</b> Tkinter<br>
 <b>From:</b> Gautam Walve
 
 <b>Description of the Application:</b><br>

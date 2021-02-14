@@ -30,7 +30,7 @@ This module should help in generating a plethora of Database for the End User
 
 
 Screenshot of the Application: https://imgur.com/gallery/E2brqTF<br>
-![alt text](https://imgur.com/gallery/E2brqTF)
+
 
 
 

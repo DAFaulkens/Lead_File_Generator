@@ -2,45 +2,29 @@ from tkinter import messagebox #For MessageBox
 from tkinter import * #Importing Other Tkinter Modules
 import tkinter as tk #Importing TK
 from tkinter import ttk #This is basically for better UI
+from tkinter.ttk import * #For Progress Bar (Added 15022021)
 import datetime as dt # For the Dates Inputed
 import os #For Opening the file
 from csv import DictWriter #For Writing as headers and rows 
-import smtplib # for EMail config : WIP
+import time
 
 
-
-#Setting up Introduction
-#messagebox.showinfo("Project 01: Lead Generator.","Created by Gautam Walve and his acute Google Searches\n Dated: 03-February 2021 ")
 #Setting up Plate & Size
-
-#creating blank window
-#splash_root=tk.Tk()
-win = tk.Tk()
-win.title("Cold Lead Entries")
-#END of Details
-
+#creating Main window
+win = tk.Tk()#mainwindow
+win.title("Lead File Generator")#mainwindow
 #Setting Window Size
-#splash_root.geometry('360x200')
-#splash_root.resizable(width=False,height=False)
-#END of Details
-
-#Setting Window Size
-win.geometry('480x200')
-
-win.resizable(width=False,height=False)
-#END of Details
-
+win.geometry('480x200') #mainwindow
+win.resizable(width=False,height=False) #mainwindow
+#END of Details    
 #GUI Image
-win.iconbitmap('D:/LogoeFc.ico')
+win.iconbitmap('D:\GitHub.io\Lead_File_Generator\logo.ico')
 #END of Details
 
-##Splash Screen
-#splash_label=ttk.Label(splash_root,text = "welcome",font = ("Helvitica",18))
-#splash_label.grid()
-##END of Details
+
+
 
 #Labelling of the frames
-
 #Date:Label
 date_var=str(dt.date.today())
 dt_label=ttk.Label(win,text= "Date at Time of Entry :").grid(row=1, column= 0, sticky = tk.W)
@@ -124,7 +108,7 @@ def disp_val():
         disp_error = tk.Label(win,text=disp,width="2",bd="0",justify="center",fg="white",bg='black').grid(row =4,column =2,sticky = tk.W)
     except:
         messagebox.showinfo("Input Error", " Number cannot be blank")
-disp_error_btn = ttk.Button(win,width=22,text="Check Digits Entered:",command=disp_val).grid(row =4, column =3,sticky = tk.W)
+disp_error_btn = ttk.Button(win,width=22,text="Check Digits Entered:",command=disp_val).grid(row =16, column =1,sticky = tk.W)
 
 #DEFINING THE ACTION ON PRESSING SUBMIT 
 
@@ -147,28 +131,48 @@ def action():
         print(userName,userNumber,userEmail,userLead,userFile,followup,userDate)
     except:
         return action           
-
- #printing to file
-
+  
+   #printing to file
     with open(date_var+"__Lead Generated"+" .csv",'a',newline='') as f:
-#Writing Headers         
-        headers = ['Date Log','Client Name','Client Number','Client Email','File Type','Sourced Via','Follow Up','callback on']
-        writer = DictWriter (f,fieldnames=headers)
-        if os.stat(date_var+"__Lead Generated"+" .csv").st_size==0:
-             writer.writeheader()
-#Writing Rows
-        writer.writerow({'Date Log':date_var,"Client Name":userName,"Client Number":userNumber,"Client Email":userEmail,"File Type":userLead,"Sourced Via":userFile,"Follow Up":followup,"callback on":userDate })
- #def delete():
-        name_entrybox.delete(0,tk.END)
-        num_entrybox.delete(0,tk.END)
-        email_entrybox.delete(0,tk.END)
-        date_btn.delete(0,tk.END)
- #END of Details
+            #Writing Headers         
+            headers = ['Date Log','Client Name','Client Number','Client Email','File Type','Sourced Via','Follow Up','callback on']
+            writer = DictWriter (f,fieldnames=headers)
+            if os.stat(date_var+"__Lead Generated"+" .csv").st_size==0:
+                    writer.writeheader()
+            #Writing Rows
+            writer.writerow({'Date Log':date_var,"Client Name":userName,"Client Number":userNumber,"Client Email":userEmail,"File Type":userFile,"Sourced Via":userLead,"Follow Up":followup,"callback on":userDate })
+        
+ 
+        #def delete():
+            name_entrybox.delete(0,tk.END)
+            num_entrybox.delete(0,tk.END)
+            email_entrybox.delete(0,tk.END)
+            date_btn.delete(0,tk.END)
+            #END of Details
 
 #Finally
 #SUBMIT BUTTON & CLEAR BUTTON
 submit = ttk.Button(win,text="Submit",command = action)
-submit.grid(row=16,column=1,sticky = tk.W)
+submit.grid(row=16,column=0,sticky = tk.W)
+
+#Extrasss
+def information():
+     #Setting up Introduction
+    #Creating Author's Informations
+    messagebox.showinfo("Author's Info","""Author's Name:Gautam Walve \nFile Name: Lead File Generator \nPublising Month: February 2021 \nVersion:1.3 \nUpdate Logs: 
+>>Added Publishing Information  \n>>Moved 'Check Digits Entered' Button  to Bottom of the screen  \n Minor Error Fixed """)
+   # root = tk.Tk()
+    #root.overrideredirect(True)
+    #info = ttk.Label(win,text="hiee" )
+    #info.grid(row=1,column=0)
+    #root.after(3000,root.destroy)
+
+info = ttk.Button(win,text = "Updates",command = information)
+info.grid(row =1,column = 2)
+
+
+
+
 
 #END of Details
 win.mainloop()

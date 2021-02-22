@@ -33,11 +33,17 @@ Screenshot of the Application: https://imgur.com/gallery/E2brqTF<br>
 
 Updates Notes: 
 
-19th February 2021
->> Added Author's Information Tab: which has along with publishing info, has update notes
->> Minor Error Fix : File Type and Sourced via Entries were placed properly
+### 19th February 2021
+> Added Author's Information Tab: which has along with publishing info, has update notes
+> Minor Error Fix : File Type and Sourced via Entries were placed properly
 
+### 20th February 2021
+> Tabs Added For Extra Functionality
+> Tabs Added for Loan Eligibility
+> Added Auto Update of Digits Entered for Phone Digits 
+> Removed Updater for Digits Entered
+> Message Box Information now displayed in Tav
 
+### 22nd February 2021
 
-
-
+> Removed Loan Eligibility Calculator due to Errors Generated while testing.

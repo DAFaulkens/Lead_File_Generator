@@ -31,7 +31,7 @@ This module should help in generating a plethora of Database for the End User
 
 Screenshot of the Application: https://imgur.com/gallery/E2brqTF<br>
 
-Updates Notes: 
+## Updates Logs: 
 
 ### 19th February 2021
 > Added Author's Information Tab: which has along with publishing info, has update notes

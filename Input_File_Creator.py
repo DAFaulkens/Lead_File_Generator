@@ -175,7 +175,7 @@ submit.grid(row=16,column=0,sticky = tk.W)
 #    #Creating Author's Informations
 info = ttk.Label(tab0,text = """Author's Name:Gautam Walve \nFile Name: Lead File Generator \nPublising Month: February 2021 \nVersion:1.4 \nUpdate Logs: 
 >> Tabs Added for extra Functionalities
->> Tab Added to calculate Loan Eligibility
+>> Tab Added to calculate maximum loan applicable
 >> Added auto Update of Digits entered for Numbers
 >> Removed Updater for DIgits Entered
 >> Message Box Information now displayed in Tab""")
@@ -221,71 +221,87 @@ def ltv():
         tab2.after(100,ltv)
 ltv()
 
-Loaned = IntVar()
-    #Label
-loan_req_lbl = ttk.Label(tab2,text= "Net Monthly Income: ")
-loan_req_lbl.grid(row=4, column =0,sticky=tk.W)
-    #Entrybox
-loan_req_entry=ttk.Entry(tab2,width=23,textvariable = Loaned)
-loan_req_entry.grid(row=4,column=1,sticky=tk.W)
+#Loaned = IntVar()
+#    #Label
+#loan_req_lbl = ttk.Label(tab2,text= "Net Monthly Income: ")
+#loan_req_lbl.grid(row=4, column =0,sticky=tk.W)
+#    #Entrybox
+#loan_req_entry=ttk.Entry(tab2,width=23,textvariable = Loaned)
+#loan_req_entry.grid(row=4,column=1,sticky=tk.W)
 
-#Rate of Interest
-roi = IntVar()
-    #Label
-roi_lbl = ttk.Label(tab2,text= "Proposed ROI: (%) ")
-roi_lbl.grid(row=5, column =0,sticky=tk.W)
-    #Entrybox
-roi_entry=ttk.Entry(tab2,width=23,textvariable = roi)
-roi_entry.grid(row=5,column=1,sticky=tk.W)
+##FOIR
+#foir = IntVar()
+#    #Label
+#foir_lbl = ttk. Label(tab2,text="Foir:(%) ")
+#foir_lbl.grid(row =5,column=0,sticky=tk.W)
+#    #Grid
+#foir_entry=ttk.Entry(tab2,width=23,textvariable = foir)
+#foir_entry.grid(row=5,column=1,sticky=tk.W)
 
-#Tenure
-tenure = IntVar()
-    #Label
-tenure_lbl = ttk.Label(tab2,text= "Tenure Proposed(in years): ")
-tenure_lbl.grid(row=6, column =0,sticky=tk.W)
-    #Entrybox
-tenure_entry=ttk.Entry(tab2,width=10,textvariable = tenure)
-tenure_entry.grid(row=6,column=1,sticky=tk.W)
-    #Label
-def mon():
-    try:
-        tenure_lbl2 = ttk.Label(tab2,text= (f'{(tenure.get()*12)}:months' ),width='11')
-        tenure_lbl2.grid(row=6, column =1,sticky=tk.E)
-        tab2.after(100,mon)
-    except:
-         return tab2.after(100,mon)
-mon()
 
-#Liability
-deductions = IntVar()
-    #Label
-liability_lbl = ttk.Label(tab2,text= "Recurring Liabilities/outflow:(Amount) ")
-liability_lbl.grid(row=7, column =0,sticky=tk.W)
-    #Entrybox
-liability_entry=ttk.Entry(tab2,width=23,textvariable = deductions)
-liability_entry.grid(row=7,column=1,sticky=tk.W)
 
-#Eligibility
-eli = IntVar()
-    #Label
-eli_lbl = ttk.Label(tab2,text= "Loan Eligibility: ")
-eli_lbl.grid(row=8, column =0,sticky=tk.W)
 
-    #Entrybox
-userIncome = Loaned.get()
-userRoi = (roi.get()/100)
-userTenure = (tenure.get()*12)
-userLiability = deductions.get()
-formula = ((userIncome*userRoi*userTenure)-userLiability)
+##Rate of Interest
+#roi = IntVar()
+#    #Label
+#roi_lbl = ttk.Label(tab2,text= "Proposed ROI: (%) ")
+#roi_lbl.grid(row=6, column =0,sticky=tk.W)
+#    #Entrybox
+#roi_entry=ttk.Entry(tab2,width=23,textvariable = roi)
+#roi_entry.grid(row=6,column=1,sticky=tk.W)
 
-def formulae():
-    try:
-        eli_txt2 = ttk.Label(tab2,text=int((Loaned.get())*((roi.get()/100))*((tenure.get()*12)) - deductions.get()),width='10' )
-        eli_txt2.grid(row=8, column =1,sticky=tk.W)
-        tab2.after(100,formulae)
-    except:
-        tab2.after(100,formulae)
-formulae()
+##Tenure
+#tenure = IntVar()
+#    #Label
+#tenure_lbl = ttk.Label(tab2,text= "Tenure Proposed(in years): ")
+#tenure_lbl.grid(row=7, column =0,sticky=tk.W)
+#    #Entrybox
+#tenure_entry=ttk.Entry(tab2,width=10,textvariable = tenure)
+#tenure_entry.grid(row=7,column=1,sticky=tk.W)
+#    #Label
+#def mon():
+#    try:
+#        tenure_lbl2 = ttk.Label(tab2,text= (f'{(tenure.get()*12)}:months' ),width='11')
+#        tenure_lbl2.grid(row=7, column =2,sticky=tk.E)
+#        tab2.after(100,mon)
+#    except:
+#         return tab2.after(100,mon)
+#mon()
+
+##Liability
+#deductions = IntVar()
+#    #Label
+#liability_lbl = ttk.Label(tab2,text= "Recurring Liabilities/outflow:(Amount) ")
+#liability_lbl.grid(row=8, column =0,sticky=tk.W)
+#    #Entrybox
+#liability_entry=ttk.Entry(tab2,width=23,textvariable = deductions)
+#liability_entry.grid(row=8,column=1,sticky=tk.W)
+
+##Eligibility
+#eli = IntVar()
+#    #Label
+#eli_lbl = ttk.Label(tab2,text= "Loan Eligibility: ")
+#eli_lbl.grid(row=9, column =0,sticky=tk.W)
+
+
+
+
+#    #Entrybox
+#userIncome = Loaned.get()
+#userRoi = ((roi.get()/100)/12)
+#userTenure = (tenure.get()*12)
+#userLiability = deductions.get()
+#userFoir = (foir.get()/100)
+#formula = ((userIncome*userRoi*userTenure)-userLiability)
+
+#def formulae():
+#    try:
+#        eli_txt2 = ttk.Label(tab2,text=int((Loaned.get())*((roi.get()/100))*((tenure.get()*12)) - deductions.get()),width='10' )
+#        eli_txt2.grid(row=8, column =1,sticky=tk.W)
+#        tab2.after(100,formulae)
+#    except:
+#        tab2.after(100,formulae)
+#formulae()
 
 #END of Details
 win.mainloop()

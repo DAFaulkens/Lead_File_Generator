@@ -1,4 +1,4 @@
-# Lead_File_Generator
+# Lead_File_Generator [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/AasuraA/Lead_File_Generator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AasuraA/Lead_File_Generator/context:python)
 <b><u>Purpose: To Create a Database of Cold Leads Generated Day to Day</b>
 
 <H2><b>Publishing Month</b> : February 2021</b></H2>
